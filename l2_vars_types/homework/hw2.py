@@ -4,4 +4,4 @@ year = 2018 - age
 print(f"You were born at {year}")
 
 #For branch check
-Print("Branch check")
+print("Branch check")
