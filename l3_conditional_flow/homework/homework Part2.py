@@ -19,24 +19,13 @@ else:
     pass
 
 #Expiration date section
+exp_date = input("Enter expiration date in format (dd/yy):\n")
 try:
-    exp_date_m, exp_date_y = input("Enter expiration date in format (dd/yy):").split("/")
-except Exception:
-    print("Expiration date incorrect")
-
-try:
-        int(exp_date_y)
-        int(exp_date_m)
-except ValueError:
+        int(exp_date)
+        print("Expiration date incorect")
         exit()
-
-exp_date = exp_date_m + "/" + exp_date_y
-
-#Check for month an year values
-if exp_date_m < 1 or exp_date_m >12 or exp_date_y < 2018:
-    print("Expiration date incorrect")
-else:
-    pass
+except ValueError:
+        print("Ok")
 
 
 #CVV code section
