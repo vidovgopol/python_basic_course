@@ -7,7 +7,7 @@ while True:
             if len(i) == 4:
                 try:
                     temp_var = int(i)
-                    loop_exit_var = 1
+                    loop_exit_var += 1
                 except:
                     print("credit card number incorrect")
                     break
@@ -15,7 +15,7 @@ while True:
                 loop_exit_var = 0
                 print("credit card number incorrect")
                 break
-    if loop_exit_var == 1:
+    if loop_exit_var == 4:
         break
 
 
