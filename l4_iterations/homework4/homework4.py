@@ -1,19 +1,22 @@
-card_num = True
-while card_num == True:
+while True:
     card_num = input("Please enter your credit card number in format xxxx xxxx xxxx xxxx:\n")
     card_num_list = card_num.split(' ')
-    for i in card_num_list:
-        if len(i) == 4 and len(card_num_list) == 4:
-            try:
-                temp_var = int(i)
-            except:
-                card_num = True
+    loop_exit_var = 0
+    if len(card_num_list) == 4:
+        for i in card_num_list:
+            if len(i) == 4:
+                try:
+                    temp_var = int(i)
+                    loop_exit_var = 1
+                except:
+                    print("credit card number incorrect")
+                    break
+            else:
+                loop_exit_var = 0
                 print("credit card number incorrect")
                 break
-        else:
-            card_num = True
-            print("credit card number incorrect")
-            break
+    if loop_exit_var == 1:
+        break
 
 
 if card_num_list[0] == "5167":
@@ -23,40 +26,36 @@ elif card_num_list[0] == "5375":
 else:
     print("You use credit card from unknown bank\n")
 
-exp_date = True
 cur_year = 18
-while exp_date == True:
+while True:
     exp_date = input("Please enter expiration date in format mm/yy:\n")
     exp_date_list = exp_date.split('/')
+    loop_exit_var = 0
     for i in exp_date_list:
         if len(i) == 2 and len(exp_date_list) == 2:
             try:
                 temp_var = int(i)
-                if int(exp_date_list[0]) < 1 or int(exp_date_list[0]) > 12 or int(exp_date_list[1]) < cur_year:
-                    exp_date = True
-                    print("Expiration date incorect")
-                    break
+                if int(exp_date_list[0]) >= 1 and int(exp_date_list[0]) <= 12 and int(exp_date_list[1]) >= cur_year:
+                    loop_exit_var = 1
             except:
-                exp_date = True
-                print("expiration date incorrect")
                 break
-        else:
-            exp_date = True
-            print("Expiration date incorect")
-            break
+    if loop_exit_var == 1:
+        break
+    else:
+        print("expiration date incorrect")
 
-cvv_code = True
-while cvv_code == True:
+while True:
     cvv_code = input("Please enter your CVV code:\n")
+    loop_exit_var = 0
     if len(cvv_code) == 3:
         try:
             temp_var = int(cvv_code)
+            loop_exit_var = 1
         except:
-            cvv_code = True
-    else:
-        cvv_code = True
+            continue
+    if loop_exit_var == 1:
+        break
 
 print(f"Credit card number is< {card_num} >")
 print(f"Expiration date is < {exp_date} >")
 print(f"CVV code is < {cvv_code} >")
-
