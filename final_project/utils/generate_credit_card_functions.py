@@ -23,7 +23,7 @@ def rand_phone_fun():
         rand_phone = rand_phone + str(random.randint(0, 9))
         if len(rand_phone) == 13:
             break
-    chance = random.randint(1, 5)
+    chance = random.randint(1, 50)
     if chance == 1:
         rand_phone = list(rand_phone)
         rand_phone[random.randint(1, 11)] = random.choice(rand_character)
@@ -58,7 +58,7 @@ def rand_card_number_fun():
             rand_card_number = rand_card_number + str(random.randint(0, 9))
         if len(rand_card_number) == 19:
             break
-        chance = random.randint(1, 10)
+        chance = random.randint(1, 100)
     if chance == 1:
         rand_card_number = list(rand_card_number)
         rand_card_number[random.randint(0, 18)] = random.choice(rand_character)

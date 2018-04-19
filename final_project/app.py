@@ -1,10 +1,9 @@
+import csv
 from utils import card_holders_generation
 from utils import check_credit_card
 from utils import check_holder_name
 from utils import check_exp_date
 from utils import check_phone_number
-
-import csv
 
 card_holders_coll = card_holders_generation()
 print(card_holders_coll)
@@ -22,9 +21,19 @@ for el in card_holders_coll:
         card_holders_coll_with_errors.append(el)
 
 
-test = {'name': 'vova', 'Phone': '88888'}
-with open('cardholders.csv', 'w', newline='') as csv:
-    header = ['Name', 'Phone']
+import csv
+
+with open('cardholders.csv', 'w', newline='') as csvfile:
+    header = ['Name', 'Phone', "Exp_day", "Card"]
     writer = csv.DictWriter(csvfile, fieldnames=header)
-    writer.writeheader()
-    writer.writerow(test)
+    writer.writeheader() # записываем названия колонок
+    for el in card_holders_coll_no_errors:
+        writer.writerow(el)
+
+
+with open('cardholders_erros.csv', 'w', newline='') as csvfile:
+    header = ['Name', 'Phone', "Exp_day", "Card"]
+    writer = csv.DictWriter(csvfile, fieldnames=header)
+    writer.writeheader() # записываем названия колонок
+    for el in card_holders_coll_with_errors:
+        writer.writerow(el)
